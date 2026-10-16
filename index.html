@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perry Store — Tenis, ropa y accesorios en Nogales, Sonora</title>
+<meta name="description" content="Tenis, ropa y accesorios. Tienda física en Nogales, Sonora. Envíos a todo México, entregas a domicilio gratis. Mayoreo y menudeo.">
+<meta property="og:title" content="Perry Store">
+<meta property="og:description" content="Tenis, ropa y accesorios. Envíos a todo México. Mayoreo y menudeo.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4A84B; --ink:#F2EEE6; --bg:#0A0A0A; --soft:#C9C3B8; --muted:#A9A39A;
+  --line:#2A2722; --line2:#3A342A; --panel:#151412; --ph:#1E1C19; --phText:#6E685E;
+  --serif:'Cinzel', Georgia, serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--bg);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Archivo','Helvetica Neue',Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:rgba(10,10,10,.95)}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:#E8C877}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1440px;margin:0 auto;padding-left:24px;padding-right:24px}
+.serif{font-family:var(--serif)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 28px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:1px solid transparent;background:transparent;color:var(--ink)}
+.btn-gold{background:var(--gold);color:var(--bg)}
+.btn-gold:hover{color:var(--bg);filter:brightness(1.08)}
+.btn-line{border-color:var(--ink)}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--phText);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:12px}
+.h2{margin:0;font-family:var(--serif);font-size:clamp(26px,3vw,32px);font-weight:900;text-transform:uppercase}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+
+/* Barra */
+.announce{background:var(--gold);color:var(--bg);font-size:11px;letter-spacing:.1em;font-weight:800;text-transform:uppercase;padding:9px 16px;display:flex;justify-content:center;gap:12px 40px;flex-wrap:wrap;text-align:center}
+
+/* Header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,10,.95);border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;padding-top:10px;padding-bottom:10px}
+.nav{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.logo{width:60px;height:60px;border-radius:50%;display:block}
+.icons{display:flex;justify-content:flex-end;gap:4px;align-items:center}
+.icon-btn{width:44px;height:44px;border:0;background:transparent;display:flex;align-items:center;justify-content:center;position:relative;color:var(--ink)}
+.badge{position:absolute;top:6px;right:4px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.badge-gold{background:var(--gold);color:var(--bg)}
+.badge-ink{background:var(--ink);color:var(--bg)}
+.wa-head{margin-left:8px;border:1px solid var(--gold);color:var(--gold);padding:0 16px;font-size:11px}
+.wa-head:hover{color:var(--bg);background:var(--gold)}
+.menu-toggle{display:none}
+
+/* Hero */
+.hero{position:relative;min-height:680px;background:var(--panel);overflow:hidden;display:flex;align-items:center;padding:64px 0}
+.hero .ph{position:absolute;inset:0;justify-content:flex-end;padding-right:10%}
+.hero-in{position:relative;width:100%;display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.hero h1{margin:0;font-family:var(--serif);font-size:clamp(46px,7vw,104px);font-weight:900;line-height:.95;text-transform:uppercase}
+.hero h1 span{color:var(--gold)}
+.hero p{margin:0;max-width:460px;font-size:16px;line-height:1.55;color:var(--soft)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Beneficios */
+.perks{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.perks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;padding-top:28px;padding-bottom:28px}
+.perk{display:flex;gap:14px;align-items:center}
+.perk b{display:block;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.perk span{font-size:13px;color:var(--muted)}
+
+/* Combos */
+.combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;padding-top:72px;padding-bottom:24px}
+.combo{position:relative;min-height:340px;background:var(--panel);border:1px solid var(--line2);padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden}
+.combo .ph{position:absolute;right:0;top:0;bottom:0;width:45%;background:var(--ph)}
+.combo-txt{position:relative;max-width:55%;display:flex;flex-direction:column;gap:10px}
+.combo h3{margin:0;font-family:var(--serif);font-size:clamp(26px,3vw,34px);font-weight:900;line-height:1;text-transform:uppercase}
+.combo p{margin:0;font-size:13px;color:var(--muted)}
+.combo-buy{position:relative;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.price-big{font-size:44px;font-weight:900;font-stretch:110%;color:var(--gold);line-height:1}
+.btn-light{background:var(--ink);color:var(--bg);padding:0 22px;font-size:11px;border:0}
+.btn-light:hover{color:var(--bg);background:#fff}
+
+/* Catálogo */
+.cat-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{min-height:40px;padding:0 18px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.grid-products{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:12px;background:#121110;padding:10px}
+.card .ph{position:relative;aspect-ratio:1/1;background:var(--ph);padding:16px}
+.wish{position:absolute;top:4px;right:4px}
+.new{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--bg);font-size:10px;font-weight:800;letter-spacing:.08em;padding:5px 8px}
+.card-meta{display:flex;flex-direction:column;gap:4px;padding:0 4px}
+.card-cat{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.card-line{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.card h3{margin:0;font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.card-price{font-size:13px;color:var(--soft);white-space:nowrap}
+.add{min-height:44px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.add.done{background:var(--ink);color:var(--bg)}
+
+/* Categorías */
+.grid-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.cat{position:relative;aspect-ratio:3/4;background:#1A1916;border:1px solid var(--line);display:flex;align-items:flex-end;padding:18px}
+.cat .ph{position:absolute;inset:0}
+.cat strong{position:relative;font-family:var(--serif);font-size:20px;font-weight:700;text-transform:uppercase}
+.cat:hover{border-color:var(--gold)}
+
+/* Mayoreo */
+.mayoreo{background:var(--gold);color:var(--bg);padding:80px 0}
+.may-in{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.may-txt{flex:1 1 380px;display:flex;flex-direction:column;gap:18px}
+.may-txt .kicker{color:var(--bg)}
+.may-txt h2{margin:0;font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:900;line-height:.95;text-transform:uppercase}
+.may-txt p{margin:0;max-width:460px;font-size:16px;line-height:1.55}
+.may-box{flex:1 1 420px;background:var(--bg);color:var(--ink);padding:32px;display:flex;flex-direction:column;gap:20px}
+.toggle{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.toggle button{min-height:48px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.may-box h3{margin:0;font-size:18px;font-weight:800;text-transform:uppercase}
+.may-box p{margin:0;font-size:14px;line-height:1.55;color:var(--soft)}
+.wa-big{min-height:52px;font-size:13px}
+
+/* Videos */
+.grid-videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.video{position:relative;aspect-ratio:9/16;background:#1A1916;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.video strong{font-family:var(--serif);font-size:22px;color:var(--ink)}
+.video:hover{border-color:var(--gold);color:var(--muted)}
+
+/* Footer */
+footer{background:#050505;border-top:1px solid var(--line);padding:64px 0 28px}
+.foot{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
+.foot-brand{flex:1 1 260px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.foot-brand p{margin:0;font-size:13px;color:var(--muted);max-width:260px;line-height:1.5}
+.social{display:flex;gap:4px}
+.social a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line2)}
+.social a:hover{border-color:var(--gold)}
+.foot-cols{flex:3 1 560px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:28px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.foot-cols div{display:flex;flex-direction:column;gap:10px}
+.foot-cols strong{font-size:13px;color:var(--gold)}
+.foot-cols a,.foot-cols span{color:var(--soft)}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;color:#8E8A83;letter-spacing:.06em;text-transform:uppercase;border-top:1px solid var(--line);padding-top:20px;margin-top:48px}
+
+/* WhatsApp flotante en móvil */
+.wa-float{display:none}
+
+@media (max-width:820px){
+  .head{grid-template-columns:auto 1fr auto}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px 24px 16px}
+  .nav.open{display:flex}
+  .nav a{min-height:44px;display:flex;align-items:center}
+  .menu-toggle{display:flex}
+  .head .brand{justify-self:start}
+  .wa-head{display:none}
+  .hero{min-height:560px}
+  .hero .ph{justify-content:center;align-items:flex-end;padding:0 0 24px}
+  .combo{padding:24px}
+  .combo .ph{position:relative;width:auto;height:180px;order:-1;margin:-24px -24px 0}
+  .combo-txt{max-width:none}
+  .wa-float{display:flex;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--bg);align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+  .wa-float:hover{color:var(--bg)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <span>Envíos a todo México</span>
+  <span>Entregas a domicilio gratis</span>
+  <span>Mayoreo y menudeo</span>
+  <span>Tienda física en Nogales, Son.</span>
+</div>
+
+<header>
+  <div class="wrap head" style="position:relative">
+    <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="mainNav" aria-label="Principal">
+      <a href="#tenis">Tenis</a>
+      <a href="#categorias">Ropa</a>
+      <a href="#categorias">Gorras</a>
+      <a href="#mayoreo">Mayoreo</a>
+    </nav>
+    <a href="#inicio" class="brand" aria-label="Perry Store, inicio"><img class="logo" src="logo.png" alt="Logo Perry Store" width="60" height="60"></a>
+    <div class="icons">
+      <button class="icon-btn" aria-label="Buscar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Favoritos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+        <span class="badge badge-ink" id="wishCount" hidden>0</span>
+      </button>
+      <button class="icon-btn" aria-label="Bolsa de compras">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="badge badge-gold" id="cartCount">0</span>
+      </button>
+      <a class="btn wa-head" href="https://wa.me/526311684533" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6L4 20z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="ph">[ Foto: muro de tenis de la tienda ]</div>
+    <div class="wrap hero-in">
+      <span class="kicker">Nogales, Sonora · Envíos a todo México</span>
+      <h1>Tenis<br>Ropa<br><span>Accesorios</span></h1>
+      <p>Los pares y prendas que buscas, con entrega a domicilio gratis. Compra por pieza o surte tu negocio con precio de mayoreo.</p>
+      <div class="row">
+        <a class="btn btn-gold" href="#tenis">Ver catálogo</a>
+        <a class="btn btn-line" href="#mayoreo">Precios de mayoreo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="perks">
+    <div class="wrap perks-grid">
+      <div class="perk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M10 20v-6h4v6"/></svg>
+        <div><b>Tienda física</b><span>Nogales, Sonora</span></div>
+      </div>
+      <div class="perk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+        <div><b>Envíos</b><span>A todo México</span></div>
+      </div>
+      <div class="perk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" aria-hidden="true"><path d="M2 6h11v10H2z"/><path d="M13 9h5l3 3v4h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        <div><b>Entrega a domicilio</b><span>Gratis</span></div>
+      </div>
+      <div class="perk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="7" height="7"/><rect x="14" y="4" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <div><b>Mayoreo y menudeo</b><span>Desde una pieza</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap combos" aria-label="Combos">
+    <article class="combo">
+      <div class="ph">[ Foto tenis + playera ]</div>
+      <div class="combo-txt">
+        <span class="kicker" style="font-size:11px">Combo</span>
+        <h3>Tenis + Playera</h3>
+        <p>Tú eliges el par y la playera.</p>
+      </div>
+      <div class="combo-buy">
+        <span class="price-big">$1,499</span>
+        <button class="btn btn-light" data-combo="c1">Lo quiero</button>
+      </div>
+    </article>
+    <article class="combo">
+      <div class="ph">[ Foto playera + pantalón ]</div>
+      <div class="combo-txt">
+        <span class="kicker" style="font-size:11px">Combo</span>
+        <h3>Playera + Pantalón</h3>
+        <p>Arma tu outfit completo.</p>
+      </div>
+      <div class="combo-buy">
+        <span class="price-big">$999</span>
+        <button class="btn btn-light" data-combo="c2">Lo quiero</button>
+      </div>
+    </article>
+  </section>
+
+  <section class="wrap" id="tenis" style="padding-top:56px;padding-bottom:72px">
+    <div class="cat-head">
+      <h2 class="h2">Lo más nuevo</h2>
+      <div class="filters" role="group" aria-label="Filtrar catálogo" id="filters"></div>
+    </div>
+    <div class="grid-products" id="products"></div>
+  </section>
+
+  <section class="wrap" id="categorias" style="padding-bottom:80px">
+    <h2 class="h2" style="margin-bottom:24px">Categorías</h2>
+    <div class="grid-cats" id="cats"></div>
+  </section>
+
+  <section class="mayoreo" id="mayoreo">
+    <div class="wrap may-in">
+      <div class="may-txt">
+        <span class="kicker">Surtimos a todo México</span>
+        <h2>Mayoreo<br>y menudeo</h2>
+        <p>¿Quieres un par para ti o surtir tu propia tienda? Escríbenos por WhatsApp y te enviamos catálogo y precios.</p>
+      </div>
+      <div class="may-box">
+        <div class="toggle" role="group" aria-label="Tipo de compra">
+          <button data-mode="menudeo" aria-pressed="true">Menudeo</button>
+          <button data-mode="mayoreo" aria-pressed="false">Mayoreo</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <h3 id="modeTitle">Compra por pieza</h3>
+          <p id="modeText">Aparta tu par o tu prenda por WhatsApp. Entrega a domicilio gratis o envío a todo México.</p>
+        </div>
+        <a class="btn btn-gold wa-big" id="waLink" href="https://wa.me/526311684533" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6L4 20z"/></svg>
+          Escribir al 631 168 4533
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:80px;padding-bottom:80px">
+    <div class="cat-head">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="kicker">Síguenos el proceso</span>
+        <h2 class="h2">Abriendo mi negocio hasta hacerlo viral</h2>
+      </div>
+      <a href="https://vt.tiktok.com/ZSbtKVvUf/" target="_blank" rel="noopener" style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--gold);color:var(--gold);padding-bottom:2px">Ver en TikTok</a>
+    </div>
+    <div class="grid-videos" id="videos"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <img src="logo.png" alt="Logo Perry Store" width="110" height="110" style="border-radius:50%;display:block">
+        <p>Tenis, ropa y accesorios. Tienda física en Nogales, Sonora, con envíos a todo México.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/perrystore_vm" target="_blank" rel="noopener" aria-label="Instagram de Perry Store">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8"/></svg>
+          </a>
+          <a href="https://vt.tiktok.com/ZSbtKVvUf/" target="_blank" rel="noopener" aria-label="TikTok de Perry Store">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 5"/></svg>
+          </a>
+          <a href="https://wa.me/526311684533" target="_blank" rel="noopener" aria-label="WhatsApp de Perry Store">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6L4 20z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <strong>Tienda</strong>
+          <a href="#tenis">Tenis</a>
+          <a href="#categorias">Playeras</a>
+          <a href="#categorias">Hoodies</a>
+          <a href="#categorias">Gorras</a>
+        </div>
+        <div>
+          <strong>Compras</strong>
+          <a href="#mayoreo">Mayoreo</a>
+          <a href="#mayoreo">Menudeo</a>
+          <a href="#inicio">Envíos a todo México</a>
+          <a href="#inicio">Entregas a domicilio</a>
+        </div>
+        <div>
+          <strong>Contacto</strong>
+          <a href="https://wa.me/526311684533" target="_blank" rel="noopener">631 168 4533</a>
+          <span>Nogales, Sonora</span>
+          <span>[Dirección exacta]</span>
+          <span>[Horario]</span>
+        </div>
+      </div>
+    </div>
+    <div class="legal">
+      <span>Aviso de privacidad · Términos y condiciones</span>
+      <span>© 2026 Perry Store</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/526311684533" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6L4 20z"/></svg>
+</a>
+
+<script>
+(function(){
+  var WA = '526311684533';
+  var state = { cart: 0, wish: {}, added: {}, filter: 'Todo', mode: 'menudeo' };
+  var products = [
+    { id:'t1', cat:'Tenis',  name:'Tenis urbano negro',   isNew:true  },
+    { id:'t2', cat:'Tenis',  name:'Tenis blanco clásico', isNew:false },
+    { id:'t3', cat:'Tenis',  name:'Tenis bota negra',     isNew:true  },
+    { id:'r1', cat:'Ropa',   name:'Playera estampada',    isNew:true  },
+    { id:'r2', cat:'Ropa',   name:'Hoodie gráfico',       isNew:false },
+    { id:'r3', cat:'Ropa',   name:'Jeans con rotos',      isNew:false },
+    { id:'g1', cat:'Gorras', name:'Gorra bordada',        isNew:true  },
+    { id:'g2', cat:'Gorras', name:'Gorra negra logo',     isNew:false }
+  ];
+  var cats = ['Tenis','Playeras','Hoodies','Pantalones','Gorras','Accesorios'];
+  var days = ['Día 36','Día 33','Día 32','Día 31'];
+
+  function el(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function renderCounts(){
+    el('cartCount').textContent = state.cart;
+    var w = Object.keys(state.wish).filter(function(k){return state.wish[k];}).length;
+    el('wishCount').textContent = w;
+    el('wishCount').hidden = w === 0;
+  }
+
+  function renderFilters(){
+    el('filters').innerHTML = ['Todo','Tenis','Ropa','Gorras'].map(function(f){
+      return '<button class="chip" data-filter="'+f+'" aria-pressed="'+(state.filter===f)+'">'+f+'</button>';
+    }).join('');
+  }
+
+  function renderProducts(){
+    el('products').innerHTML = products.filter(function(p){
+      return state.filter === 'Todo' || p.cat === state.filter;
+    }).map(function(p){
+      var wished = !!state.wish[p.id], added = !!state.added[p.id];
+      return '<article class="card">'+
+        '<div class="ph">[ Foto '+esc(p.name)+' ]'+
+          '<button class="icon-btn wish" data-wish="'+p.id+'" aria-pressed="'+wished+'" aria-label="'+(wished?'Quitar ':'Agregar ')+esc(p.name)+(wished?' de':' a')+' favoritos">'+
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="'+(wished?'var(--gold)':'none')+'" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'+
+          '</button>'+
+          (p.isNew ? '<span class="new">NUEVO</span>' : '')+
+        '</div>'+
+        '<div class="card-meta"><span class="card-cat">'+p.cat+'</span>'+
+          '<div class="card-line"><h3>'+esc(p.name)+'</h3><span class="card-price">[PRECIO]</span></div>'+
+        '</div>'+
+        '<button class="add'+(added?' done':'')+'" data-add="'+p.id+'">'+(added?'Agregado ✓':'Agregar a la bolsa')+'</button>'+
+      '</article>';
+    }).join('');
+  }
+
+  function renderStatic(){
+    el('cats').innerHTML = cats.map(function(c){
+      return '<a class="cat" href="#tenis"><span class="ph">[ Foto '+c+' ]</span><strong>'+c+'</strong></a>';
+    }).join('');
+    el('videos').innerHTML = days.map(function(d){
+      return '<a class="video" href="https://vt.tiktok.com/ZSbtKVvUf/" target="_blank" rel="noopener">'+
+        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>'+
+        '<strong>'+d+'</strong><span>[ Video TikTok ]</span></a>';
+    }).join('');
+  }
+
+  function renderMode(){
+    var may = state.mode === 'mayoreo';
+    document.querySelectorAll('[data-mode]').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.mode === state.mode);
+    });
+    el('modeTitle').textContent = may ? 'Surte tu negocio' : 'Compra por pieza';
+    el('modeText').textContent = may
+      ? 'Precios especiales por volumen en tenis, ropa y gorras. Te mandamos catálogo actualizado y enviamos a cualquier parte de México.'
+      : 'Aparta tu par o tu prenda por WhatsApp. Entrega a domicilio gratis o envío a todo México.';
+    var msg = may
+      ? 'Hola Perry Store, me interesa comprar por mayoreo. ¿Me pueden enviar catálogo y precios?'
+      : 'Hola Perry Store, me interesa comprar un producto. ¿Me pueden dar información?';
+    el('waLink').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+  }
+
+  document.addEventListener('click', function(e){
+    var t;
+    if ((t = e.target.closest('[data-filter]'))) { state.filter = t.dataset.filter; renderFilters(); renderProducts(); }
+    else if ((t = e.target.closest('[data-wish]'))) { state.wish[t.dataset.wish] = !state.wish[t.dataset.wish]; renderProducts(); renderCounts(); }
+    else if ((t = e.target.closest('[data-add]'))) { state.cart++; state.added[t.dataset.add] = true; renderProducts(); renderCounts(); }
+    else if ((t = e.target.closest('[data-combo]'))) { state.cart++; t.textContent = 'Agregado ✓'; renderCounts(); }
+    else if ((t = e.target.closest('[data-mode]'))) { state.mode = t.dataset.mode; renderMode(); }
+  });
+
+  var menuBtn = el('menuBtn'), nav = el('mainNav');
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); }
+  });
+
+  renderFilters(); renderProducts(); renderStatic(); renderMode(); renderCounts();
+})();
+</script>
+</body>
+</html>
